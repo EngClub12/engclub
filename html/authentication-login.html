@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EngClub: Sign in</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.jpg" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+
+  
+
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <div
+      class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+      <div class="d-flex align-items-center justify-content-center w-100">
+        <div class="row justify-content-center w-100">
+          <div class="col-md-8 col-lg-6 col-xxl-3">
+            <div class="card mb-0">
+              <div class="card-body">
+                <a href="../index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                  <img src="../assets/images/logos/logo.png" width="180" alt="">
+                </a>
+                <p class="text-center">Make English more fun</p>
+                <form>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-4">
+                    <label for="exampleInputPassword1" class="form-label">Student ID</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between mb-4">
+                    <div class="form-check">
+                      <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
+                      <label class="form-check-label text-dark" for="flexCheckChecked">
+                        I am agree to respect the terms
+                      </label>
+                    </div>
+                    
+                  </div>
+                  <a href="./dashboard.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" onclick="checkCodeAndRedirect(event)">Sign In</a>
+                  <div class="d-flex align-items-center justify-content-center">
+                    
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function checkCodeAndRedirect(event) {
+        event.preventDefault(); // منع السلوك الافتراضي للرابط
+        const validCodes = ["453", "728", "914", "307", "852", "639", "205", "417", "682", "304", "719", "530", "846", "192", "381", "647", "215", "809", "431", "792", "103", "586", "947", "325", "470", "812", "904", "613", "278", "435", "826", "309", "571", "649", "824", "318", "763", "490", "712"]; // مجموعة من الرموز الصحيحة
+        const userCode = document.getElementById("exampleInputPassword1").value;
+
+        if (validCodes.includes(userCode)) {
+            window.location.href = "./dashboard.html"; // الصفحة التي سيتم الانتقال إليها
+        } else {
+            alert("The student code is not correct. please try again or call, ENG: kyrlos");
+        }
+    }
+</script>
+
+</body>
+
+</html>
