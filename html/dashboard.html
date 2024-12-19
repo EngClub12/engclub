@@ -655,5 +655,13 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+  <script>
+    // تحقق إذا كانت القيمة موجودة في localStorage
+if (!localStorage.getItem('hasVisitedDashboard')) {
+  // إذا لم تكن القيمة موجودة، هذا هو أول دخول للمستخدم
+  // تخزين القيمة في localStorage
+  localStorage.setItem('hasVisitedDashboard', 'true');
+}
+  </script>
 </body>        
 </html>
