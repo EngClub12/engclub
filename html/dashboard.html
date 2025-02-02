@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EngClub</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.jpg" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@lucide/web/dist/umd/lucide.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <style>
+      h2{
+        color: white;
+      }
+      body{
+        background-color: rgb(246, 245, 245);
+      }
+      h3.section{
+        color: white;
+      }
+    </style>
+</head>
+
+<body>
+
+  
+
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="./dashboard.html" class="text-nowrap logo-img">
+            <img src="../assets/images/logos/logo.png" width="180" alt="" />
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./dashboard.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-home"></i>
+                </span>
+                <span class="hide-menu">Home Page</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Sections bundle</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./section.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-video"></i>
+                </span>
+                <span class="hide-menu">Sections</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-pencil"></i>
+                </span>
+                <span class="hide-menu">Exams</span>
+              </a>
+            </li>
+            
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-book"></i>
+                </span>
+                <span class="hide-menu">Booklets</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file"></i>
+                </span>
+                <span class="hide-menu">Homeworks</span>
+              </a>
+            </li>
+ <li class="nav-small-cap">
+              <i class=""></i>
+              <span class="hide-menu">social & communication</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="https://engclub.mn.co/sign_up" aria-expanded="false">
+                <span>
+                  <i class="ti ti-social"></i>
+                </span>
+                <span class="hide-menu">EngClub Community</span>
+              </a>
+            </li>
+<li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">AI Tools</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./zack ai.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-robot"></i>
+                </span>
+                <span class="hide-menu">Zack AI</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">AUTH</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-login"></i>
+                </span>
+                <span class="hide-menu">Log out</span>
+              </a>
+            </li>
+            
+            
+          </ul>
+          <!--<div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
+            <div class="d-flex">
+              <div class="unlimited-access-title me-3">
+                <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Upgrade to pro</h6>
+                <a href="https://adminmart.com/product/modernize-bootstrap-5-admin-template/" target="_blank" class="btn btn-primary fs-2 fw-semibold lh-sm">Buy Pro</a>
+              </div>
+              <div class="unlimited-access-img">
+                <img src="../assets/images/backgrounds/rocket.png" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>-->
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+                <i class="ti ti-bell-ringing"></i>
+                <div class="notification bg-primary rounded-circle"></div>
+              </a>
+            </li>
+          </ul>
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+              <a href="mailto:kyrlosadel@outlook.com" target="_blank" class="btn btn-primary">Contact us</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <img src="../assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                </a>
+                <!--<div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                  <div class="message-body">
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-user fs-6"></i>
+                      <p class="mb-0 fs-3">My Profile</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-mail fs-6"></i>
+                      <p class="mb-0 fs-3">My Account</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-list-check fs-6"></i>
+                      <p class="mb-0 fs-3">My Task</p>
+                    </a>
+                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                  </div>
+                </div>-->
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!--  Header End -->
+      <div class="container-fluid">
+    <!--WELCOME-->
+  <main class="p-6">
+    <div class="space-y-8">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="bg-gradient-to-l from-blue-600 to-blue-500 rounded-xl p-6 text-white">
+       <!--<h2 class="text-2xl font-bold mb-2">كيرلس</h2>--> 
+       <div id="userInfo" class="text-gray-600"></div>
+        <p class="opacity-90">Let's start to learn English</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-semibold">Your Email.</h3>
+            <i class="icon-trophy text-blue-500"></i>
+        </div>
+        <div id="email" class="text-gray-600"></div>
+    </div>
+    <div class="bg-white rounded-xl p-6 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="font-semibold">sections we make it, for you.</h3>
+            <i class="icon-book text-blue-500"></i>
+        </div>
+        <p class="text-3xl font-bold text-blue-500">0</p>
+    </div>
+</div>
+<!--Zack-->
+<div class="relative mx-auto max-w-5xl mt-20">
+  <div class="rounded-xl p-1"
+      style="background-image: linear-gradient(to right bottom, rgb(79, 70, 229) 0%, rgb(165, 56, 164) 50%, rgb(220, 38, 38) 100%);">
+      <div class="rounded-lg bg-black/80 backdrop-blur">
+          <div class="flex w-full flex-wrap items-center justify-between gap-4 px-8 py-10 sm:px-16 lg:flex-nowrap">
+              <div class="lg:max-w-xl">
+                  <h2
+                      class="block w-full pb-2 bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
+                      Question! No problem, Ask Zack
+                      </h2>
+                  
+              </div>
+              <div class="flex flex-wrap items-center justify-center gap-6 ">
+                <a href="zack ai.html" target="_blank"><button class="bg-violet-600 text-white button-text flex items-center justify-center whitespace-nowrap rounded-md transition-all duration-300 px-8 py-3 text-xs sm:text-sm">Ask Zack!</button></a>
+                <a href="zack ai.html" target="_blank"> <button class="flex items-center justify-center whitespace-nowrap rounded-md border border-zinc-700 bg-zinc-900 text-center text-white backdrop-blur transition-all hover:bg-zinc-800 px-8 py-3 text-xs sm:text-sm">improve your accent</button></a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div> 
+<!--Latest Section-->
+
+  
+    <!--<div class="text-center mb-16">-->
+      <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+        Latest Sections
+      </h2>
+   <!-- </div>-->
+    
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Blog Card 1 -->
+      <div class="group relative overflow-hidden rounded-2xl bg-white shadow-xl transition-all hover:shadow-2xl">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img
+            src="../assets/images/products/section1.webp"
+            alt="Boost your conversion rate"
+            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
+          <div class="absolute bottom-0 p-6 text-white">
+            <div class="mb-2 flex items-center gap-2 text-sm">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>Mar 16, 2020</span>
+              </div>
+              <span>•</span>
+              <div class="flex items-center gap-2">
+                <img
+                  src="../assets/images/logos/favicon.jpg"
+                  alt="Michael Foster"
+                  class="h-6 w-6 rounded-full border border-white/20"
+                />
+                <span>EngClub</span>
+              </div>
+            </div>
+            <a href="https://example.com" target="_blank"><h3 style="color: white;" class="text-xl font-semibold leading-tight">Basics of Conversational English</h3></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Card 2 -->
+      <div class="group relative overflow-hidden rounded-2xl bg-white shadow-xl transition-all hover:shadow-2xl">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img
+            src="../assets/images/products/section2.webp"
+            alt="How to use search engine optimization to drive sales"
+            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
+          <div class="absolute bottom-0 p-6 text-white">
+            <div class="mb-2 flex items-center gap-2 text-sm">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>Mar 10, 2020</span>
+              </div>
+              <span>•</span>
+              <div class="flex items-center gap-2">
+                <img
+                  src="../assets/images/logos/favicon.jpg"
+                  alt="Lindsay Walton"
+                  class="h-6 w-6 rounded-full border border-white/20"
+                />
+                <span>EngClub</span>
+              </div>
+            </div>
+            <a href="https://example.com" target="_blank"><h3 style="color: white;" class="text-xl font-semibold leading-tight">Common Idioms and Expressions</h3></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Card 3 -->
+      <div class="group relative overflow-hidden rounded-2xl bg-white shadow-xl transition-all hover:shadow-2xl">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img
+            src="../assets/images/products/section3.webp"
+            alt="Improve your customer experience"
+            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
+          <div class="absolute bottom-0 p-6 text-white">
+            <div class="mb-2 flex items-center gap-2 text-sm">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>Feb 12, 2020</span>
+              </div>
+              <span>•</span>
+              <div class="flex items-center gap-2">
+                <img
+                  src="../assets/images/logos/favicon.jpg"
+                  alt="Tom Cook"
+                  class="h-6 w-6 rounded-full border border-white/20"
+                />
+                <span>EngClub</span>
+              </div>
+            </div>
+            <a href="https://example.com" target="_blank"><h3 style="color: white;" class="text-xl font-semibold leading-tight">Improving Pronunciation and Accent</h3></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--EXAM-->
+    <main class="p-6">
+      <div class="space-y-8">
+        <section>
+          <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Latest Exams</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <div class="flex items-center justify-between mb-4">
+                      <span class="text-blue-500 font-semibold">Exam Section 1</span>
+                      <i class="icon-file-text text-gray-400"></i>
+                  </div>
+                  <h4 class="font-bold mb-2">Basics of Conversational English</h4>
+                  <div class="flex items-center justify-between">
+                      <div class="text-sm text-gray-600">
+                          <p>Delivery date:12/5/25</p>
+                          <p>Start date:28/1/25</p>
+                      </div>
+                      <button class="bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-200">
+                          Start
+                      </button>
+                  </div>
+              </div>
+              <!--S2-->
+              <div class="bg-white rounded-xl p-6 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-blue-500 font-semibold">Exam Section 1</span>
+                    <i class="icon-file-text text-gray-400"></i>
+                </div>
+                <h4 class="font-bold mb-2">Basics of Conversational English</h4>
+                <div class="flex items-center justify-between">
+                    <div class="text-sm text-gray-600">
+                        <p>Delivery date:12/5/25</p>
+                        <p>Start date:28/1/25</p>
+                    </div>
+                    <button class="bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-200">
+                        Start
+                    </button>
+                </div>
+            </div>
+            <!--s3-->
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <div class="flex items-center justify-between mb-4">
+                  <span class="text-blue-500 font-semibold">Exam Section 1</span>
+                  <i class="icon-file-text text-gray-400"></i>
+              </div>
+              <h4 class="font-bold mb-2">Basics of Conversational English</h4>
+              <div class="flex items-center justify-between">
+                  <div class="text-sm text-gray-600">
+                      <p>Delivery date:12/5/25</p>
+                      <p>Start date:28/1/25</p>
+                  </div>
+                  <button class="bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-200">
+                      Start
+                  </button>
+              </div>
+          </div>
+            </div>
+          </div>
+      </section>
+</div>
+</main>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+
+<script>
+  window.intercomSettings = {
+    api_base: "https://api-iam.intercom.io",
+    app_id: "dcdadkiq",
+    user_id: user.id, // IMPORTANT: Replace "user.id" with the variable you use to capture the user's ID
+    name: user.name, // IMPORTANT: Replace "user.name" with the variable you use to capture the user's name
+    email: user.email, // IMPORTANT: Replace "user.email" with the variable you use to capture the user's email address
+    created_at: user.createdAt, // IMPORTANT: Replace "user.createdAt" with the variable you use to capture the user's sign-up date
+  };
+</script>
+
+
+<script>
+  // We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/dcdadkiq'
+  (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/dcdadkiq';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+</script>
+  <script>
+    window.intercomSettings = {
+      api_base: "https://api-iam.intercom.io",
+      app_id: "dcdadkiq",
+    };
+  </script>
+  
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C0K0G1RGK0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C0K0G1RGK0');
+</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5384765176686905"
+     crossorigin="anonymous"></script>    
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5384765176686905"
+     crossorigin="anonymous"></script>
+<!-- EnAADS -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5384765176686905"
+     data-ad-slot="1560609274"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/675c8e83af5bfec1dbdb84ba/1if0opcm5';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+  <script>
+ // تحقق إذا كانت القيمة موجودة في localStorage
+if (!localStorage.getItem('jesus')) {
+  // إذا لم تكن القيمة موجودة، هذا هو أول دخول للمستخدم
+  // تخزين القيمة في localStorage
+  localStorage.setItem('jesus', 'true');
+}
+  </script>
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+    const supabaseUrl = 'https://rzipoblvjizjwwjytymk.supabase.co'
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6aXBvYmx2aml6and3anl0eW1rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzcyMjc4MjEsImV4cCI6MjA1MjgwMzgyMX0.ZVCd0VxMADxS0HitLjpvthVgpVtc8e9n4U9K7nr2SwI'
+    const supabase = createClient(supabaseUrl, supabaseKey)
+    async function checkUser() {
+        const { data: { user } } = await supabase.auth.getUser()
+        if (!user) {
+            window.location.href = 'signin.html'
+        } else {
+            const userInfoElement = document.getElementById('userInfo')
+            userInfoElement.innerHTML = `
+                <h2 class="text-2xl font-bold mb-2">Hello, ${user.user_metadata.name || user.email}</h2>
+                
+            `
+        } {
+          const userInfoElement = document.getElementById('email')
+            userInfoElement.innerHTML = `
+                <h2 style="color: blue;" class="text-2xl font-bold mb-2">${user.email}</h2>
+                
+            `
+        }
+    }
+
+    checkUser()
+
+    document.getElementById('logoutBtn').addEventListener('click', async function() {
+        const { error } = await supabase.auth.signOut()
+        if (error) {
+            alert('حدث خطأ أثناء تسجيل الخروج: ' + error.message)
+        } else {
+            window.location.href = 'signin.html'
+        }
+    })
+</script>
+<script>
+  const defaultTheme = require('tailwindcss/defaultTheme')
+
+module.exports = {
+theme: {
+extend: {
+  fontFamily: {
+    sans: ['InterVariable', '...defaultTheme.fontFamily.sans'],
+  },
+},
+},
+// ...
+}
+</script>
+</body>        
+</html>
