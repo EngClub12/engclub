@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" type="image/png" href="Picsart_24-11-19_16-21-05-925.jpg" />
+    <title>EngClub: Exam Section 2</title>
+    <style>
+    body{
+        background-color: rgba(122, 3, 233, 0.827);
+    }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <div style="width:100%;display:flex;flex-direction:column;gap:8px;min-height:635px;"><iframe src="https://quizizz.com/embed/reading-quiz/67c1423517389caa55b325fe" title=" - Quizizz" style="flex:1;" frameBorder="0" allowfullscreen></iframe></div>
+</body>
+</html>
