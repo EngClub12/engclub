@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audiobook Player</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: linear-gradient(to bottom, #e6f3ff, #ffffff);
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      .header {
+        background: #ffffff;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        color: #2563eb;
+        font-size: 1.5rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .audiobook-card {
+        background: #ffffff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 900px;
+      }
+
+      @media (min-width: 768px) {
+        .audiobook-card {
+          flex-direction: row;
+        }
+      }
+
+      .cover-container {
+        position: relative;
+        flex: 1;
+      }
+
+      .cover-image {
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+        object-fit: cover;
+      }
+
+      .play-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+        cursor: pointer;
+      }
+
+      .cover-container:hover .play-overlay {
+        opacity: 1;
+      }
+
+      .play-button {
+        background: #ffffff;
+        border: none;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s;
+      }
+
+      .play-button:hover {
+        transform: scale(1.1);
+      }
+
+      .book-details {
+        flex: 1;
+        padding: 2rem;
+      }
+
+      .book-title {
+        font-size: 2rem;
+        color: #1e3a8a;
+        margin-bottom: 0.5rem;
+      }
+
+      .book-author {
+        color: #64748b;
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .duration-badge {
+        display: inline-flex;
+        align-items: center;
+        background: #dbeafe;
+        color: #2563eb;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        font-weight: 500;
+        gap: 0.5rem;
+      }
+
+      .book-meta {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        color: #64748b;
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .book-description {
+        margin-top: 1.5rem;
+        line-height: 1.6;
+        color: #4b5563;
+      }
+
+      .listen-button {
+        margin-top: 2rem;
+        width: 100%;
+        background: #2563eb;
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        font-size: 1.125rem;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: background-color 0.3s;
+      }
+
+      .listen-button:hover {
+        background: #1d4ed8;
+      }
+
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+          </svg>
+        EngClub Books
+        </div>
+        <div class="duration-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+            <line x1="12" x2="12" y1="19" y2="22" />
+          </svg>
+          Featured Audiobook
+        </div>
+      </header>
+      
+      <div class="audiobook-card">
+        <div class="cover-container">
+          <img 
+            src="bully.png"
+            alt="The Great Gatsby"
+            class="cover-image"
+          />
+          <div class="play-overlay">
+            <a href="Bulling.mp3">
+            <button class="play-button">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                <polygon points="5 3 19 12 5 21 5 3" />
+              </svg>
+            </button>
+        </a>
+          </div>
+        </div>
+    
+        <div class="book-details">
+          <h1 class="book-title">The Bulling</h1>
+          <p class="book-author">by 2S/A Presentation Team</p>
+          
+          <div class="duration-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15.6 6h.4a2 2 0 0 1 2 2v3.5" />
+              <path d="M2 14v-3a2 2 0 0 1 2-2h12" />
+              <path d="M22 14v3a2 2 0 0 1-2 2h-.5" />
+              <path d="M18 19h-4c-.5 0-1-.2-1.4-.6" />
+              <path d="M2 14h20" />
+            </svg>
+            9min 53sec
+          </div>
+
+          <div class="book-meta">
+            <div class="meta-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+              Written By <strong>Kyrlos Adel</strong>
+            </div>
+            <div class="meta-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+              </svg>
+              Genre: <strong>Community issues</strong>
+            </div>
+            <div class="meta-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              Released: 2025
+            </div>
+          </div>
+
+          <p class="book-description">
+            In this book, we will explore bullying from all angles, starting with understanding its types and causes to
+examining its deep impact on individuals and society. We will present case studies and real-life stories to
+illustrate its real-world effects, along with practical tips and effective strategies to combat and prevent
+bullying. Additionally, we will discuss the role of parents, teachers, and decision-makers in creating a safer
+and more supportive environment. Our goal is to equip readers with the knowledge and tools they need to
+stand against bullying and promote a culture of respect and empathy in all areas of life.
+          </p>
+          <a href="Bulling.mp3">
+          <button class="listen-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+              <line x1="12" x2="12" y1="19" y2="22" />
+            </svg>
+            Start Listening
+          </button>
+        </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const playButton = document.querySelector('.play-button');
+      const listenButton = document.querySelector('.listen-button');
+      let isPlaying = false;
+
+      function togglePlay() {
+        isPlaying = !isPlaying;
+        const playIcon = isPlaying ? 
+          '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" /></svg>' :
+          '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3" /></svg>';
+        
+        playButton.innerHTML = playIcon;
+        listenButton.innerHTML = `
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+            <line x1="12" x2="12" y1="19" y2="22" />
+          </svg>
+          ${isPlaying ? 'Pause Audiobook' : 'Start Listening'}
+        `;
+      }
+
+      playButton.addEventListener('click', togglePlay);
+      listenButton.addEventListener('click', togglePlay);
+    </script>
+  </body>
+</html>
