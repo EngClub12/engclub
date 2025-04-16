@@ -1,23 +1,59 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>EngClub Presentation</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <style>
-            body{
-                background-color: black;
-            }
-            h1{
-                text-align: center;
-            }
-            p{
-                text-align: center; 
-            }
-        </style>
-    </head>
-    <body>
-        <iframe width="100%" height="514" src="https://www.youtube.com/embed/zCIvnwBJv5s" title="bully" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </body>
+<html lang="ar">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>مشغل Video.js ليوتيوب</title>
+  <!-- استايل مشغل Video.js -->
+  <link href="https://vjs.zencdn.net/8.9.0/video-js.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .video-js {
+      width: 640px;
+      height: 360px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- مشغل الفيديو -->
+  <video
+    id="my-video"
+    class="video-js vjs-default-skin"
+    controls
+    preload="auto"
+    data-setup='{
+      "techOrder": ["youtube"],
+      "sources": [{
+        "type": "video/youtube",
+        "src": "https://www.youtube.com/watch?v=zCIvnwBJv5s"
+      }],
+      "youtube": {
+        "modestbranding": 1,
+        "rel": 0,
+        "iv_load_policy": 3,
+        "controls": 1,
+        "showinfo": 0,
+        "disablekb": 1,
+        "fs": 0
+      }
+    }'
+  ></video>
+
+  <!-- سكربت مشغل Video.js -->
+  <script src="https://vjs.zencdn.net/8.9.0/video.min.js"></script>
+  <!-- بلجن دعم YouTube -->
+  <script src="https://cdn.jsdelivr.net/npm/videojs-youtube@3.0.1/dist/Youtube.min.js"></script>
+
+</body>
 </html>
