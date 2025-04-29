@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winners Announcement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #111827, #1f2937);
+      color: white;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      animation: fadeIn 0.6s ease-in-out forwards;
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 5vw, 3.75rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #fde047, #fbbf24, #fde047);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    header p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: #d1d5db;
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 72rem;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    .team-card {
+      border-radius: 0.75rem;
+      overflow: hidden;
+      transition: all 0.5s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .team-card:hover {
+      transform: scale(1.02);
+    }
+
+    .card-header {
+      height: 0.75rem;
+    }
+
+    .card-content {
+      background-color: #1f2937;
+      padding: 1.5rem;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .position-label {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .position-number {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+
+    .team-name {
+      text-align: center;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      font-weight: 700;
+      font-size: 2rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid;
+    }
+
+    .btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: width 0.3s ease;
+    }
+
+    .btn-primary:hover::before {
+      width: 100%;
+    }
+
+    /* Gold theme */
+    .gold .card-header { background: linear-gradient(to bottom, #fde047, #eab308); }
+    .gold .position-number { background: linear-gradient(to bottom, #fde047, #eab308); color: #78350f; }
+    .gold .team-name { background: linear-gradient(to bottom, #fde047, #eab308); color: #78350f; }
+    .gold .btn-primary { background: #eab308; color: #78350f; }
+    .gold .btn-primary:hover { background: #fde047; }
+    .gold .btn-secondary { border-color: #eab308; color: #fde047; }
+    .gold .btn-secondary:hover { background: rgba(234, 179, 8, 0.1); }
+
+    /* Silver theme */
+    .silver .card-header { background: linear-gradient(to bottom, #e5e7eb, #9ca3af); }
+    .silver .position-number { background: linear-gradient(to bottom, #e5e7eb, #9ca3af); color: #1f2937; }
+    .silver .team-name { background: linear-gradient(to bottom, #e5e7eb, #9ca3af); color: #1f2937; }
+    .silver .btn-primary { background: #9ca3af; color: #1f2937; }
+    .silver .btn-primary:hover { background: #e5e7eb; }
+    .silver .btn-secondary { border-color: #9ca3af; color: #e5e7eb; }
+    .silver .btn-secondary:hover { background: rgba(156, 163, 175, 0.1); }
+
+    /* Bronze theme */
+    .bronze .card-header { background: linear-gradient(to bottom, #d97706, #92400e); }
+    .bronze .position-number { background: linear-gradient(to bottom, #d97706, #92400e); color: #fff; }
+    .bronze .team-name { background: linear-gradient(to bottom, #d97706, #92400e); color: #fff; }
+    .bronze .btn-primary { background: #92400e; color: #fff; }
+    .bronze .btn-primary:hover { background: #d97706; }
+    .bronze .btn-secondary { border-color: #92400e; color: #d97706; }
+    .bronze .btn-secondary:hover { background: rgba(146, 64, 14, 0.1); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .silver { margin-top: 2rem; }
+      .bronze { margin-top: 3rem; }
+      .gold {
+        margin-top: -2rem;
+        transform: scale(1.05);
+      }
+      .grid {
+        display: grid;
+        grid-template-areas: "silver gold bronze";
+      }
+      .gold { grid-area: gold; }
+      .silver { grid-area: silver; }
+      .bronze { grid-area: bronze; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Winners Announcement</h1>
+      <p>Congratulations to our top teams who demonstrated exceptional skill and dedication</p>
+    </header>
+
+    <div class="grid">
+      <div class="team-card gold">
+        <div class="card-header"></div>
+        <div class="card-content">
+          <div class="card-top">
+            <div class="position-label">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5h3.5a.5.5 0 0 1 .5.5V9"/>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5h-3.5a.5.5 0 0 0-.5.5V9"/>
+                <path d="M4 22h16"/>
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+              </svg>
+              <span>First Place</span>
+            </div>
+            <div class="position-number">1</div>
+          </div>
+          <div class="team-name">2S/A</div>
+          <div class="buttons">
+            <button class="btn btn-primary"><span>Play Promo</span></button>
+            <button class="btn btn-secondary"><span>Play Presentation</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card silver">
+        <div class="card-header"></div>
+        <div class="card-content">
+          <div class="card-top">
+            <div class="position-label">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#A8A9AD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5h3.5a.5.5 0 0 1 .5.5V9"/>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5h-3.5a.5.5 0 0 0-.5.5V9"/>
+                <path d="M4 22h16"/>
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+              </svg>
+              <span>Second Place</span>
+            </div>
+            <div class="position-number">2</div>
+          </div>
+          <div class="team-name">1S/B</div>
+          <div class="buttons">
+            <button class="btn btn-primary"><span>Play Promo</span></button>
+            <button class="btn btn-secondary"><span>Play Presentation</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card bronze">
+        <div class="card-header"></div>
+        <div class="card-content">
+          <div class="card-top">
+            <div class="position-label">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#CD7F32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5h3.5a.5.5 0 0 1 .5.5V9"/>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5h-3.5a.5.5 0 0 0-.5.5V9"/>
+                <path d="M4 22h16"/>
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+              </svg>
+              <span>Third Place</span>
+            </div>
+            <div class="position-number">3</div>
+          </div>
+          <div class="team-name">1S/A</div>
+          <div class="buttons">
+            <button class="btn btn-primary"><span>Play Promo</span></button>
+            <button class="btn btn-secondary"><span>Play Presentation</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.team-card');
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          card.style.animation = 'fadeInUp 0.6s ease-out forwards';
+        }, index * 150);
+      });
+
+      const buttons = document.querySelectorAll('.btn');
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const action = button.textContent.trim();
+          const teamName = button.closest('.team-card').querySelector('.team-name').textContent;
+          console.log(`${action} clicked for team ${teamName}`);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
